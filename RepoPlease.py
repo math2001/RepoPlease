@@ -8,13 +8,9 @@ import os.path
 class RepoPleaseCommand(sublime_plugin.WindowCommand):
 
     def run(self):
-
         items = sublime.find_resources('package-metadata.json')
-        items.sort()
         self.items = []
         for item in items:
-            # with open(os.path.join(os.path.dirname(sublime.packages_path()),
-            #                                        item)) as fp:
             self.items.append([item.split('/')[1], json.loads(sublime.load_resource(item))['url']])
         self.window.show_quick_panel(self.items, self.open_repo)
 
