@@ -3,7 +3,6 @@
 import sublime
 import sublime_plugin
 import json
-import os.path
 
 class RepoPleaseCommand(sublime_plugin.WindowCommand):
 
@@ -17,7 +16,4 @@ class RepoPleaseCommand(sublime_plugin.WindowCommand):
     def open_repo(self, index):
         if index == -1:
             return
-
-        sublime.run_command('open_url', {
-            'url': self.items[index][1]
-        })
+        sublime.run_command('open_url', {'url': self.items[index][1] })
